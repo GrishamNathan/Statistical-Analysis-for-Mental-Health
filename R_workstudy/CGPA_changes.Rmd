@@ -1,0 +1,74 @@
+---
+title: "CGPA_Changes"
+author: "Grisham Nathan"
+date: "October 12, 2017"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r, echo=FALSE}
+f=file.choose()
+mydata=readxl::read_xlsx(f)
+```
+
+```{r, echo=FALSE}
+ggplot(mydata,aes(x=CGPA_Fall2012))+geom_histogram() 
+summary(mydata$CGPA_Fall2012)
+paste("Standard Deviation:", sd(mydata$CGPA_Fall2012,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Winter2013))+geom_histogram()
+summary(mydata$CGPA_Winter2013)
+paste("Standard Deviation:",sd(mydata$CGPA_Winter2013,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Summer_2013))+geom_histogram()
+summary(mydata$CGPA_Summer_2013)
+paste("Standard Deviation:",sd(mydata$CGPA_Summer_2013,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Fall_2013))+geom_histogram()
+summary(mydata$CGPA_Fall_2013)
+paste("Standard Deviation:",sd(mydata$CGPA_Fall_2013,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Winter_2014))+geom_histogram()
+summary(mydata$CGPA_Winter_2014)
+paste("Standard Deviation:",sd(mydata$CGPA_Winter_2014,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Summer_2014))+geom_histogram()
+summary(mydata$CGPA_Summer_2014)
+paste("Standard Deviation:",sd(mydata$CGPA_Summer_2014,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Fall_2014))+geom_histogram()
+summary(mydata$CGPA_Fall_2014)
+paste("Standard Deviation:",sd(mydata$CGPA_Fall_2014,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Winter_2015))+geom_histogram()
+summary(mydata$CGPA_Winter_2015)
+paste("Standard Deviation:",sd(mydata$CGPA_Winter_2015,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Summer_2015))+geom_histogram()
+summary(mydata$CGPA_Summer_2015)
+paste("Standard Deviation:",sd(mydata$CGPA_Summer_2015,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Fall_2016))+geom_histogram()
+summary(mydata$CGPA_Fall_2016)
+paste("Standard Deviation:",sd(mydata$CGPA_Fall_2016,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Winter_2016))+geom_histogram()
+summary(mydata$CGPA_Winter_2016)
+paste("Standard Deviation:",sd(mydata$CGPA_Winter_2016,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Summer_2016))+geom_histogram()
+summary(mydata$CGPA_Summer_2016)
+paste("Standard Deviation:",sd(mydata$CGPA_Summer_2016,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CPGA_Fall_2016))+geom_histogram()
+summary(mydata$CGPA_Fall_2016)
+paste("Standard Deviation:",sd(mydata$CGPA_Fall_2016,na.rm=TRUE))
+
+ggplot(mydata,aes(x=CGPA_Winter_2017))+geom_histogram()
+summary(mydata$CGPA_Winter_2017)
+paste("Standard Deviation:",sd(mydata$CGPA_Winter_2017,na.rm=TRUE))
+```

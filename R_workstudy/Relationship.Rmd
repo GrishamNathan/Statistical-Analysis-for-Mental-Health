@@ -1,0 +1,61 @@
+---
+title: "Relationship"
+author: "Grisham Nathan"
+date: "October 15, 2017"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r, echo=FALSE}
+f=file.choose()
+mydata=readxl::read_xlsx(f)
+mydata=as.matrix(mydata)
+```
+
+```{r, echo=FALSE}
+Fall2014=mydata[c(1:15),3]
+Winter2015=mydata[c(16:58),4]
+Summer2015=mydata[c(59:102),5]
+```
+
+##First assessment
+```{r, echo=FALSE}
+First_OQ = mydata[c(1:15),6]
+First_PERMA = mydata[c(1:15),7]
+First_SEI =  mydata[c(1:15),8]
+model = lm(formula = Fall2014 ~ First_OQ + First_PERMA + First_SEI)
+summary(model)
+First=cbind(Fall2014,First_OQ,First_PERMA,First_SEI)
+pairs(First)
+cor(mydata[c(1:15),c(3,6,7,8)])
+```
+
+##Second assessment
+```{r,echo=FALSE}
+Second_OQ = mydata[c(16:58),6]
+Second_PERMA = mydata[c(16:58),7]
+Second_SEI =  mydata[c(16:58),8]
+model2 = lm(formula = Winter2015 ~ Second_OQ + Second_PERMA + Second_SEI)
+summary(model2)
+Second=cbind(Winter2015,Second_OQ,Second_PERMA,Second_SEI)
+pairs(Second)
+cor(mydata[c(16:58),c(4,6,7,8)])
+```
+
+##Third assessment
+```{r,echo=FALSE}
+Third_OQ = mydata[c(59:102),6]
+Third_PERMA = mydata[c(59:102),7]
+Third_SEI =  mydata[c(59:102),8]
+model3 = lm(formula = Summer2015 ~ Third_OQ + Third_PERMA + Third_SEI)
+summary(model3)
+Third=cbind(Summer2015,Third_OQ,Third_PERMA,Third_SEI)
+pairs(Third)
+cor(mydata[c(59:102),c(5:8)])
+```
+
+

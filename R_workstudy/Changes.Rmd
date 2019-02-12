@@ -1,0 +1,45 @@
+---
+title: "Changes"
+author: "Grisham Nathan"
+date: "October 12, 2017"
+output: word_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## R Markdown
+
+```{r, echo=FALSE}
+f=file.choose()
+mydata=readxl::read_xlsx(f)
+mydata$Assessments=as.character(mydata$Assessments)
+```
+
+```{r, echo=FALSE}
+ggplot(mydata,aes(x=Assessments, y=OQ_Score)) + geom_boxplot() + geom_smooth(method = "lm", se=FALSE, color="black", aes(group=1))
+
+ggplot(mydata,aes(x=Assessments, y=PERMA_Score)) + geom_boxplot() + geom_smooth(method = "lm", se=FALSE, color="black", aes(group=1))
+
+ggplot(mydata,aes(x=Assessments, y=SEI_Score)) + geom_boxplot() + geom_smooth(method = "lm", se=FALSE, color="black", aes(group=1))
+```
+
+```{r, echo=FALSE}
+mydata %>% filter(Assessments=='1') %>% summary(mydata)
+mydata %>% filter(Assessments=='2') %>% summary(mydata)
+mydata %>% filter(Assessments=='3') %>% summary(mydata)
+mydata %>% filter(Assessments=='4') %>% summary(mydata)
+mydata %>% filter(Assessments=='5') %>% summary(mydata)
+```
+
+
+
+
+
+
+
+
+
